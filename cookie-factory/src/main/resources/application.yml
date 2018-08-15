@@ -1,0 +1,27 @@
+spring:
+  activemq:
+    broker-url: tcp://localhost:61616
+
+camel:
+  springboot:
+    name: '@project.artifactId@'
+    main-run-controller: true
+
+management:
+  port: 8081
+  security.enabled: false
+
+server.port: -1
+
+cookiefactory:
+    fortuneservice.url: localhost:8088/fortune
+
+---
+spring:
+  profiles: prod
+  activemq:
+    broker-url: tcp://localhost:61616
+
+cookiefactory:
+  fortuneservice.url: www.yerkee.com/api/fortune
+
