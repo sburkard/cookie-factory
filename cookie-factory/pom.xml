@@ -96,6 +96,12 @@
             <artifactId>camel-test-spring</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.activemq.tooling</groupId>
+            <artifactId>activemq-junit</artifactId>
+            <version>${v.activemq}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

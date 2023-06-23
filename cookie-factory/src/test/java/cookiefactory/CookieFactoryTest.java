@@ -1,5 +1,6 @@
 package cookiefactory;
 
+import org.apache.activemq.junit.EmbeddedActiveMQBroker;
 import org.apache.camel.CamelContext;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.ProducerTemplate;
@@ -7,19 +8,24 @@ import org.apache.camel.builder.AdviceWithRouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.spring.CamelSpringBootRunner;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.jms.annotation.EnableJms;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(CamelSpringBootRunner.class)
 @SpringBootTest
+@EnableJms
 public class CookieFactoryTest {
     private static final String DIRECT_ORDER = "direct:order";
     private static final String MOCK_OUTPUT = "mock:output";
 
+    @Rule
+    public EmbeddedActiveMQBroker broker = new EmbeddedActiveMQBroker();
     @Autowired
     private CamelContext camelContext;
 
@@ -46,6 +52,7 @@ public class CookieFactoryTest {
 
         String response = (String) producer.requestBody("{ \"flavour\":\"fortune\" }");
 
+        outputMock.setAssertPeriod(2000);
         outputMock.assertIsSatisfied();
         assertThat(response).contains("your order is invalid");
     }

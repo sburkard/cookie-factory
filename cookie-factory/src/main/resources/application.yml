@@ -1,6 +1,6 @@
 spring:
   activemq:
-    broker-url: tcp://localhost:61616
+    broker-url: vm://localhost:61616
 
 camel:
   springboot:
