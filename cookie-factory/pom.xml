@@ -22,7 +22,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <v.boot>1.5.10.RELEASE</v.boot>
-        <v.camel>2.21.0</v.camel>
+        <v.camel>2.25.4</v.camel>
         <v.activemq>5.14.5</v.activemq>
     </properties>
 
