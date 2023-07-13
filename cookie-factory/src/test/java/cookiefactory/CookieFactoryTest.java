@@ -14,12 +14,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jms.annotation.EnableJms;
+import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(CamelSpringBootRunner.class)
 @SpringBootTest
 @EnableJms
+@ActiveProfiles("test")
 public class CookieFactoryTest {
     private static final String DIRECT_ORDER = "direct:order";
     private static final String MOCK_OUTPUT = "mock:output";

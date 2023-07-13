@@ -23,7 +23,7 @@ public class TestInvalidOrder extends JUnit4CitrusTest {
         CookieOrderServiceBehavior callOrderService = new CookieOrderServiceBehavior("httpClient");
         runner.applyBehavior(
                 callOrderService.withRequestPayload("{ \"flavour\":\"notExistingFlavour\", \"quantity\":42 }")
-                .assertResponseWith("Sorry, your order is invalid! \n@ignore(100)@")
+                .assertResponseWith("Sorry, your order is invalid! \n@ignore(200)@")
                 .assertResponseHeader("citrus_http_status_code", 400)
         );
     }

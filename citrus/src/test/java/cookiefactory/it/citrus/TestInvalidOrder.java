@@ -34,7 +34,7 @@ public class TestInvalidOrder extends JUnit4CitrusTest {
         runner.receive(action -> action.endpoint("httpClient")
                 .name("sendOrderResponse")
                 .messageType(MessageType.PLAINTEXT)
-                .payload("Sorry, your order is invalid! \n@ignore(100)@")
+                .payload("Sorry, your order is invalid! \n@ignore(200)@")
                 .header("citrus_http_status_code", 400)
         );
     }
