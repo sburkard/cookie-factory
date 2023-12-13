@@ -24,7 +24,7 @@
         <v.boot>1.5.10.RELEASE</v.boot>
         <v.activemq>5.14.5</v.activemq>
         <v.citrus>2.7.5</v.citrus>
-        <v.cucumber>2.3.1</v.cucumber>
+        <v.cucumber>7.15.0</v.cucumber>
     </properties>
 
     <dependencyManagement>
